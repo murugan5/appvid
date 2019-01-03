@@ -1,0 +1,51 @@
+Java -jar agent.jar http://10.3.134.72:8080/computer/win16/slave-agent.jnlp -secret  61646d696e3a61646d696e
+
+
+java -jar agent.jar -jnlpUrl http://localhost:8080/computer/example/slave-agent.jnlp -secret e6073ce49423ed54df4a24f918973f50dc760dd440013d3b30403c4a2c7501fd -workDir "c:\jenkins"
+
+java -jar agent.jar http://localhost:8080/computer/example/slave-agent.jnlp -secret 9ecd6a6b84ab799bbef38d3abef07fffcaa5d53b6c3ca0657e84f11fd1ab574e 
+
+java -jar agent.jar -jnlpUrl http://localhost:8080/computer/example/slave-agent.jnlp -secret 9ecd6a6b84ab799bbef38d3abef07fffcaa5d53b6c3ca0657e84f11fd1ab574e
+
+java -jar agent.jar -jnlpUrl http://localhost:8080/computer/example/slave-agent.jnlp
+
+
+set "GOPATH=%WORKSPACE%"
+
+set "BUILD_NO=%BUILD_NUMBER%"
+
+cd %WORKSPACE%\src\github.com\apollovideo\frame-collector
+
+go get ./...
+
+go build .
+
+docker login -u %docker_usr% -p %docker_pwd%
+
+docker build -t apovideo .
+
+docker tag apovideo:latest apollovideo/csgdevopstest:%BUILD_NUMBER%"
+
+docker push apollovideo/csgdevopstest:%BUILD_NUMBER%"
+
+docker network create --driver nat --subnet=172.18.0.0/16 mynet123
+
+docker run -d --hostname my-rabbit1 --name my-rabbit1 --ip 172.30.141.120  -p 15672:15672 -p 5672:5672 micdenny/rabbitmq-windows
+
+docker run -d --name apollovid1 --net mynet123  -v c:\app\config:c:\app\config apollovideo/csgdevopstest:%BUILD_NUMBER% "frame-collector.exe"
+
+
+NeverEverGiveUp@5
+NeverEverGiveUp@5
+
+https://cloud.docker.com/u/apollovideo/repository/docker/apollovideo/csgdevopstest/tags
+
+https://luminatorusacicd.slack.com/services/502023415622?updated=1
+
+https://luminatorusacicd.slack.com/services/BES0PC7JA?added=1
+
+After it's installed, click on Manage Jenkins again in the left navigation, and then go to Configure System. Find the Global Slack Notifier Settings section and add the following values:
+Base URL: https://luminatorusacicd.slack.com/services/hooks/jenkins-ci/
+Integration Token: Ip9oKNE46rKGoSsqfqNdNMCo
+
+https://medium.com/@gustavo.guss/jenkins-building-docker-image-and-sending-to-registry-64b84ea45ee9
