@@ -10,6 +10,7 @@ java -jar agent.jar -jnlpUrl http://localhost:8080/computer/example/slave-agent.
 java -jar agent.jar -jnlpUrl http://localhost:8080/computer/example/slave-agent.jnlp
 
 
+
 set "GOPATH=%WORKSPACE%"
 
 set "BUILD_NO=%BUILD_NUMBER%"
